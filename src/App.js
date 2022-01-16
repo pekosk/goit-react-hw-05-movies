@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <MainMenu />
-        {/* <Routes /> */}
+        <Routes />
       </div>
     </BrowserRouter>
   );

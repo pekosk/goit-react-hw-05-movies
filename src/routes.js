@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const SearchPage = lazy(() => import("./pages/SearchPage"));
-// const MoviePage = lazy(() => import("./pages/MoviePage"));
+const MoviePage = lazy(() => import("./pages/MoviePage"));
 
 const Routes = () => {
     return (
@@ -14,9 +14,9 @@ const Routes = () => {
             <Route exact path="/movies">
                 <SearchPage />
             </Route>
-            {/* <Route path="/movies/:id">
+            <Route path="/movies/:id">
                 <MoviePage />
-            </Route> */}
+            </Route>
         </Switch>
     );
 };
