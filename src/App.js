@@ -5,18 +5,24 @@ import Navigation from './components/Navigation';
 
 import './App.css';
 
-const HomeView = lazy(() =>
-  import('./views/HomeView/HomeView.js' /* webpackChunkName: "home-view"*/),
-);
-const MoviesView = lazy(() =>
-  import('./views/MoviesView/MoviesView.js' /* webpackChunkName: "movies-view"*/),
-);
-const NotFoundView = lazy(() =>
-  import('./views/NotFoundView/NotFoundView.js' /* webpackChunkName: "not-found-view"*/),
-);
-const MovieDetailsView = lazy(() =>
+const HomePage = lazy(() =>
   import(
-    './views/MovieDetailsView/MovieDetailsView.js' /* webpackChunkName: "movie-details-view"*/
+    './pages/HomePage'
+  ),
+);
+const MoviesPage = lazy(() =>
+  import(
+    './pages/MoviesPage'
+    ),
+);
+const NotFoundPage = lazy(() =>
+  import(
+    './pages/NotFoundPage'
+  ),
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    './pages/MovieDetailsPage'
   ),
 );
 
@@ -27,16 +33,15 @@ function App() {
       <Suspense fallback={<p>...loading. Please, wait!</p>}>
         <Switch>
           <Route path="/" exact>
-            <HomeView />
+            <HomePage />
           </Route>
           <Route exact path="/movies">
-            <MoviesView />
+            <MoviesPage />
           </Route>
           <Route path="/movies/:movieId">
-            <MovieDetailsView />
+            <MovieDetailsPage />
           </Route>
           <Route>
-            {/* <NotFoundView /> */}
             <Redirect to="/" />
           </Route>
         </Switch>
